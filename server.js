@@ -6,7 +6,7 @@ var express = require("express");
 var app = express();
 
 app.use(myParser.urlencoded({extended: true}));
-var con = mysql.createConnection({host: "zcntech.com", user: "muzeyr_db", password: "m0320532"});
+var con = mysql.createConnection({-*****************});
  
 app.get("/list", function (request, response) {
 
