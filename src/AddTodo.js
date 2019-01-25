@@ -22,6 +22,6 @@ export default class AddTodo extends Component {
         this.props.onAddClick(text)
         node.value=''
 
-    }
+    } 
 
 }

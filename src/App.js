@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {addTodo} from './action/action';
+import {deleteTodo} from './action/action';
 import AddTodo from './AddTodo';
 import TodoList from './TodoList';
 
@@ -15,7 +16,7 @@ class App extends Component {
       <div className="App container">
 
         <AddTodo onAddClick={text=>dispatch(addTodo(text))} />
-        <TodoList todos={eklenmisTodos} />
+        <TodoList todos={eklenmisTodos}   onDeleteClick={text=>dispatch(deleteTodo(text))}   />
       </div>
     );
   }
