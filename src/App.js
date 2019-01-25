@@ -1,28 +1,33 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {connect} from 'react-redux';
+import {addTodo} from './action/action';
+import AddTodo from './AddTodo';
+import TodoList from './TodoList';
+
+
 
 class App extends Component {
   render() {
+    //action'u çalıştırmak için dispatch methoduna ihtyyaiç var
+    const {dispatch,eklenmisTodos} = this.props;
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="App container">
+
+        <AddTodo onAddClick={text=>dispatch(addTodo(text))} />
+        <TodoList todos={eklenmisTodos} />
       </div>
     );
   }
 }
 
-export default App;
+
+
+function select(state){
+  return{
+    eklenmisTodos:state.todos
+
+  }
+}
+
+export default connect(select)(App);
